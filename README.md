@@ -4,21 +4,58 @@ CoPHEE is a Co-processor for Partially Homomorphic Encrypted Encryption. CoPHEE 
 
 Copyright (c) 2019 Michail Maniatakos, New York University Abu Dhabi, https://wp.nyu.edu/momalab/
 
-Final Set of RTL Files:
+**Set of Encryption Module (RTL) Files:**
 
-#Uart Master ./modules/uartm/rtl/uartm.v ./modules/uartm/rtl/uartm_ahb.v ./modules/uartm/rtl/uartm_rx.v ./modules/uartm/rtl/uartm_tx.v
+#Modular Interleaved Multiplier 
+Top File./Modular_Multiplier/mod_mul_il.v
 
-#Chip Configuration Space ./modules/gpcfg/rtl/gpcfg_rd.v ./modules/gpcfg/rtl/gpcfg_rd_wr.v ./modules/gpcfg/rtl/gpcfg_rd_wr_p.v ./modules/gpcfg/rtl/hw_rng_fsm.v ./modules/gpcfg/rtl/gpcfg.v
+#Modular Inverse/Binary Exended GCD 
+Top File./GCD/bin_ext_gcd.v
 
-#Modular Interleaved Multiplier ./modules/crypto_lib/rtl/mod_mul_il.v
+#Montgomery Multiplier
+Top File./Montgomery_Multiplication/montgomery_mul.v
+./Montgomery_Multiplication/Sub_Modules/mod_mul_il.v
+./Montgomery_Multiplication/Sub_Modules/montgomery_from_conv.v
+./Montgomery_Multiplication/Sub_Modules/montgomery_mul.v
+./Montgomery_Multiplication/Sub_Modules/montgomery_to_conv.v
 
-#Montgomery Multiplier ./modules/crypto_lib/rtl/montgomery_to_conv.v ./modules/crypto_lib/rtl/montgomery_mul.v ./modules/crypto_lib/rtl/montgomery_from_conv.v
+#Modular Exponentiation 
+Top File./Modular_Exponentiation/mod_exp.v
+./Modular_Exponentiation/Sub_Modules/mod_mul_il.v
+./Modular_Exponentiation/Sub_Modules/montgomery_from_conv.v
+./Modular_Exponentiation/Sub_Modules/montgomery_mul.v
+./Modular_Exponentiation/Sub_Modules/montgomery_to_conv.v
 
-#Modular Inverse/Binary Exended GCD ./modules/crypto_lib/rtl/bin_ext_gcd.v
+#TRNG 
+Top File./Random Number Generation/random_num_gen.v
+Random Number Generation/Sub_Modules/chiplib_mux.v
+Random Number Generation/Sub_Modules/trng.v
+Random Number Generation/Sub_Modules/trng_wrap.v
+Random Number Generation/Sub_Modules/vn_corrector.v
 
-#Modular Exponentiation ./modules/gpcfg/rtl/mod_exp.v
+#Montgomery wrap
+Top File./Montgomery_wrap/montgomery_wrap.v
+./Montgomery_wrap/Sub_Modules/mod_mul_il.v
+./Montgomery_wrap/Sub_Modules/montgomery_from_conv.v
+./Montgomery_wrap/Sub_Modules/montgomery_mul.v
+./Montgomery_wrap/Sub_Modules/montgomery_to_conv.v
 
-#TRNG ./modules/crypto_lib/rtl/trng_wrap.v ./modules/crypto_lib/rtl/trng.v ./modules/crypto_lib/rtl/random_num_gen.v ./modules/crypto_lib/rtl/vn_corrector.v
+**Set of Encryption Module Verification(Test Bench) Files:**
 
-#UART SLAVE ./modules/uarts/rtl/uarts.v ./modules/uarts/rtl/uarts_tx.v ./modules/uarts/rtl/uarts_rx.v
+#Modular Interleaved Multiplier./Modular_Multiplier/mod_mul_il_tb.v
+**EDA Playground Simulation:** https://edaplayground.com/x/qaZi
 
+#Modular Inverse/Binary Exended GCD GCD/bin_ext_gcd_tb.v
+**EDA Playground Simulation:** https://edaplayground.com/x/i7E6
+
+#Montgomery Multiplier  Montgomery_Multiplication/montgomery_mul_tb.v
+**EDA Playground Simulation:** https://edaplayground.com/x/Fe5B
+
+#Montgomery wrap   ./Montgomery_wrap/montgomery_wrap_tb.v
+**EDA Playground Simulation:** https://edaplayground.com/x/An4h
+
+#Modular Exponentiation   ./Modular_Exponentiation/mod_exp_tb.v
+**EDA Playground Simulation:** https://edaplayground.com/x/QHXM
+
+#TRNG   ./Random Number Generation/random_num_gen_tb.v
+**EDA Playground Simulation:** https://edaplayground.com/x/VgKD
