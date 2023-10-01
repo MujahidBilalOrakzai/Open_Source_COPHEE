@@ -1,5 +1,4 @@
 # Project_COPHEE
-CoPHEE 
 CoPHEE is a Co-processor for Partially Homomorphic Encrypted Encryption. CoPHEE assists the host processor with the calculation of big number modular arithmetic like modular multiplication, modular exponentiation, and modular inverse, for operand size 64-bit to 2048-bit. In addition, it calculates the greatest common divisor (GCD) of two numbers and generates random numbers. The host processor communicates with CoPHEE through a UART interface. CoPHEE will be designed under  (130nm Globalfoundry) Process and a 256-bit version will be loaded on an FPGA (Arty 35T FPGA).
 
 Copyright (c) 2019 Michail Maniatakos, New York University Abu Dhabi, https://wp.nyu.edu/momalab/
